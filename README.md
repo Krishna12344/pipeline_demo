@@ -1,8 +1,14 @@
-node {
- Stage('SCM Checkout'){
-  git 'https://github.com/Krishna12344/pipeline_demo'
-  }
-  stage('Compile-Package') {
-  sh 'mvn package'
-   }
-  }
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                 echo "your code"
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
+            }
+        }
+    }
+}
